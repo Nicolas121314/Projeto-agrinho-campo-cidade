@@ -932,3 +932,8 @@ footer {
         padding: 10px 15px;
     }
 }
+@media (max-width: 768px) {
+    header {
+        display: none;
+    }
+}
