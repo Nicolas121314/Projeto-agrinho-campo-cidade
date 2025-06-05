@@ -380,46 +380,56 @@
     </div>
 </footer>
 
-    <script>        
-        let lastScroll = 0;
-        const header = document.getElementById('header');
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= 0) {
-                header.classList.remove('scroll-up');
-                return;
-            }
-            
-            if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
-                header.classList.remove('scroll-up');
-                header.classList.add('scroll-down');
-            } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
-                header.classList.remove('scroll-down');
-                header.classList.add('scroll-up');
-            }
-            
-            lastScroll = currentScroll;
-        });
+<style>
+   
+:root {
+        --text-scale: 1; 
+    }
+    body * {
+        font-size: calc(var(--text-size, 1em) * var(--text-scale, 1));
+        transition: font-size 0.2s ease; 
+      
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+        hyphens: auto;
+    }
 
-        const menuMobile = document.getElementById('menuMobile');
-        const menu = document.getElementById('menu');
-        
-        menuMobile.addEventListener('click', () => {
-            menu.classList.toggle('active');
-            menuMobile.classList.toggle('active');
-        });
+  
+    p, h1, h2, h3, h4, h5, h6, li, span, a {
+        max-width: 100%;
+        overflow: hidden;
+    }
 
-        const menuLinks = document.querySelectorAll('#menu a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.remove('active');
-                menuMobile.classList.remove('active');
-            });
-        });
-    </script>
-</body>
-</html>
+  
+    .accessibility-toolbar {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+    }
+
+    .accessibility-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #2E7D32;
+        color: white;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .accessibility-btn:hover {
+        background-color: #5D4037;
+        transform: scale(1.1);
+    }
+</style>
+
 </body>
 </html>
